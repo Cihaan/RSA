@@ -9,7 +9,11 @@
         <module name="ProjetRSABase" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <module name="RSAA" />
+=======
+        <module name="RSA" />
+>>>>>>> Stashed changes
 =======
         <module name="RSA" />
 >>>>>>> Stashed changes
