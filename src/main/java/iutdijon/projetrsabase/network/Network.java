@@ -29,6 +29,7 @@ public class Network {
      */
     public Network() throws IOException {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         this.con = false;
     }
 
@@ -64,6 +65,11 @@ public class Network {
         this.creationSocket();
         this.creationFlux();
         this.con=true;
+=======
+        socket = new Socket("127.0.0.1",1234);
+        pw = new PrintWriter(socket.getOutputStream(), true);
+        bufr = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+>>>>>>> Stashed changes
 =======
         socket = new Socket("127.0.0.1",1234);
         pw = new PrintWriter(socket.getOutputStream(), true);
