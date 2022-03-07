@@ -28,6 +28,7 @@ public class Network {
      * @throws IOException 
      */
     public Network() throws IOException {
+<<<<<<< Updated upstream
         this.con = false;
     }
 
@@ -63,26 +64,34 @@ public class Network {
         this.creationSocket();
         this.creationFlux();
         this.con=true;
+=======
+        socket = new Socket("127.0.0.1",1234);
+        pw = new PrintWriter(socket.getOutputStream(), true);
+        bufr = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+>>>>>>> Stashed changes
     }
     
     /**
      * Envoi d'un message
      */
     public void sendMessage(String message) {
-       
+        System.out.println(">> "+message);
+        this.pw.println(message);
     }
         
     /**
      * Réception d'un message
      */
     public String receiveMessage() throws IOException {
-        return null;
+        String message = this.bufr.readLine();
+        System.out.println("<< "+message);
+        return message;
     }
     
     /**
      * Fin de la connexion
      */
     public void end() throws IOException {
-        
+        socket.close();
     }
 }

@@ -22,6 +22,8 @@ public class Main {
             defi.executer();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     

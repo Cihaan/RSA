@@ -7,7 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ProjetRSABase" />
+<<<<<<< Updated upstream
         <module name="RSAA" />
+=======
+        <module name="RSA" />
+>>>>>>> Stashed changes
       </profile>
     </annotationProcessing>
   </component>
