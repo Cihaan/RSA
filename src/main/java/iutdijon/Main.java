@@ -19,10 +19,11 @@ public class Main {
     public static void main(String[] args) {
         Defi defi = DefiFabrique.creer(1);
         try {
-            System.out.println("te");
             defi.executer();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     

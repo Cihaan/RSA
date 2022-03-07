@@ -11,5 +11,5 @@ public abstract class Defi {
      * Lancer le défi
      * @throws java.io.IOException Exception
      */
-    public abstract void executer() throws IOException;
+    public abstract void executer() throws Exception;
 }
