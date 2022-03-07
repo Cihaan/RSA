@@ -18,8 +18,10 @@ public class Main {
      */
     public static void main(String[] args) {
         Defi defi = DefiFabrique.creer(1);
+        //Defi defi6 = DefiFabrique.creer(6);
         try {
             defi.executer();
+            //defi6.executer();
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
