@@ -18,7 +18,7 @@ public class DefiFabrique {
         
         switch(numeroDuDefis) {
             case 1 : defi = new Defi1ConnexionAuServeur(); break;
-            
+            case 4 : defi = new Defi4Soustraction();break;
             default : throw new UnsupportedOperationException("Défis non implémenté !");
         }
         
