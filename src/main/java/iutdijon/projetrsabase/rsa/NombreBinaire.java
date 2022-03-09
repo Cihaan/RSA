@@ -147,7 +147,12 @@ public class NombreBinaire {
             int b2 = mot2.get(i) == false ? 0 : 1;
 
             int res = b1 - b2 - r;
-            if(res == 0){
+
+            if(res == 1){
+                new_n = "1" + new_n;
+                r = 0;
+            }
+            else if(res == 0){
                 new_n = "0" + new_n;
                 r = 0;
             }

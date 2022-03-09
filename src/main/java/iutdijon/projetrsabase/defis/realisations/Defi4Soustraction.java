@@ -12,6 +12,7 @@ public class Defi4Soustraction extends Defi {
 
         String message = net.receiveMessage();
 
+
         NombreBinaire nb1;
         NombreBinaire nb2;
         while(!message.startsWith("Defi valide")){
