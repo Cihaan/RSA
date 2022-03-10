@@ -2,6 +2,7 @@ package iutdijon.projetrsabase.rsa;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Random;
 
 /**
  * Description de la classe
@@ -180,7 +181,20 @@ public class NombreBinaire {
      
     //DEFI 11 - Génère un nombre binaire aléatoire de "taille" bits au maximum.
     public static NombreBinaire randomAvecTailleMax(int taille) {
-       return null;
+        Random rand = new Random();
+
+        // Taille du nombre binaire
+        int n =  (int)(Math.random() * taille);
+        // Récupère 0 ou 1
+        int m = 0;
+        String s= "";
+
+        for(int i = 0; i<n; i++){
+            m = (int)Math.random();
+            s += "" + m;
+        }
+        NombreBinaire nb = new NombreBinaire(s);
+        return nb;
     }
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
