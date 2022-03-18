@@ -130,7 +130,71 @@ public class NombreBinaire {
      
      //DEFI 2 - Renvoie le résultat de l'addition de this avec mot2
      public NombreBinaire addition(NombreBinaire mot2) {
-        return null;
+        int r = 0;
+        int taille = 0;
+
+        boolean b1 = false;
+        boolean b2 = false;
+
+
+        if(mot2.getTaille() < this.getTaille()){
+            taille = this.getTaille();
+        }
+        else{
+            taille = mot2.getTaille();
+        }
+
+        NombreBinaire nb = new NombreBinaire(mot2);
+
+
+        for(int i = 0; i <= taille; i++){
+            b1 = this.get(i);
+            b2 = mot2.get(i);
+
+            if(r == 1){
+                r = 0;
+                if(b1 == true){
+                    if(b2 == true){
+                        r = 1;
+                        nb.set(i, true);
+                    }
+                    else{
+                        r = 1;
+                        nb.set(i, false);
+                    }
+                }
+                else{
+                    if(b2 == true){
+                        r = 1;
+                        nb.set(i, false);
+                    }
+                    else{
+                        nb.set(i, true);
+                    }
+                }
+            }
+            else{
+                if(b1 == true){
+                    if(b2 == true){
+                        r = 1;
+                        nb.set(i, false);
+                    }
+                    else{
+                        nb.set(i, true);
+                    }
+                }
+                else{
+                    if(b2 == true){
+                        nb.set(i, true);
+                    }
+                    else{
+                        nb.set(i, false);
+                    }
+                }
+            }
+        }
+
+        return nb;
      }
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
@@ -140,7 +204,32 @@ public class NombreBinaire {
      
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
      public NombreBinaire soustraction(NombreBinaire mot2) {
-        return null;
+        int r = 0;
+        String new_n = "";
+        for(int i = 0 ; i < getTaille(); i++){
+            int b1 = this.get(i) == false ? 0 : 1;
+            int b2 = mot2.get(i) == false ? 0 : 1;
+
+            int res = b1 - b2 - r;
+
+            if(res == 1){
+                new_n = "1" + new_n;
+                r = 0;
+            }
+            else if(res == 0){
+                new_n = "0" + new_n;
+                r = 0;
+            }
+            else if(res == -1){
+                r = 1;
+                new_n = "1" + new_n;
+            }
+            else if(res == -2){
+                r = 1;
+                new_n = "0" + new_n;
+            }
+        }
+        return new NombreBinaire(new_n);
      }
      
      //DEFI 5 - Renvoie si this est plus petit ou égal à mot2
