@@ -128,11 +128,75 @@ public class NombreBinaire {
      }
      
      //-------------------------------------------------------------------------
-     
-     //DEFI 2 - Renvoie le résultat de l'addition de this avec mot2
-     public NombreBinaire addition(NombreBinaire mot2) {
-        return null;
-     }
+
+    //DEFI 2 - Renvoie le résultat de l'addition de this avec mot2
+    public NombreBinaire addition(NombreBinaire mot2) {
+        int r = 0;
+        int taille = 0;
+
+        boolean b1 = false;
+        boolean b2 = false;
+
+
+        if(mot2.getTaille() < this.getTaille()){
+            taille = this.getTaille();
+        }
+        else{
+            taille = mot2.getTaille();
+        }
+
+        NombreBinaire nb = new NombreBinaire(mot2);
+
+
+        for(int i = 0; i <= taille; i++){
+            b1 = this.get(i);
+            b2 = mot2.get(i);
+
+            if(r == 1){
+                r = 0;
+                if(b1 == true){
+                    if(b2 == true){
+                        r = 1;
+                        nb.set(i, true);
+                    }
+                    else{
+                        r = 1;
+                        nb.set(i, false);
+                    }
+                }
+                else{
+                    if(b2 == true){
+                        r = 1;
+                        nb.set(i, false);
+                    }
+                    else{
+                        nb.set(i, true);
+                    }
+                }
+            }
+            else{
+                if(b1 == true){
+                    if(b2 == true){
+                        r = 1;
+                        nb.set(i, false);
+                    }
+                    else{
+                        nb.set(i, true);
+                    }
+                }
+                else{
+                    if(b2 == true){
+                        nb.set(i, true);
+                    }
+                    else{
+                        nb.set(i, false);
+                    }
+                }
+            }
+        }
+
+        return nb;
+    }
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
      public NombreBinaire decalage(int n) {
