@@ -212,7 +212,12 @@ public class NombreBinaire {
      
      //DEFI 7 - Renvoie si un nombre est pair
      public boolean estPair() {
-         return false;
+        if(this.toString().endsWith("0")){
+            return true;
+        }
+        else{
+            return false;
+        }
      }
      
      //DEFI 8 - Calcul la multiplication de this avec mot2
