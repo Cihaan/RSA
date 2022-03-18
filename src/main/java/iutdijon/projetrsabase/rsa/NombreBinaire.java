@@ -291,8 +291,29 @@ public class NombreBinaire {
      }
 
      //DEFI 9 - Calcul le quotient dans la division euclidienne de this par mot2
-     public NombreBinaire quotient(NombreBinaire mot2) {
-        return null;
+     public NombreBinaire quotient(NombreBinaire mot2)
+     {
+         NombreBinaire a = this;
+         NombreBinaire b = mot2;
+         NombreBinaire r = a;
+         NombreBinaire q = new NombreBinaire(0);
+         NombreBinaire n = b;
+
+         NombreBinaire bPrime = new NombreBinaire(this.decalage(n.getTaille()));
+
+         if( !bPrime.estInferieurA(r) && !bPrime.estEgal(r) ) {
+             bPrime = b.decalage(n.getTaille()-1);
+             n = n.soustraction(new NombreBinaire(1));
+             r = r.soustraction(bPrime);
+             q = q.addition(new NombreBinaire(2).decalage(n.getTaille()));
+             if (!r.estInferieurA(b)) {
+                 a.quotient(b);
+             }
+             else {
+                 return q;
+             }
+         }
+         return q;
      }
      
      //DEFI 10 - Calcul this modulo mot2 via une division euclidienne

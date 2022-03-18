@@ -4,7 +4,7 @@ import iutdijon.projetrsabase.defis.Defi;
 import iutdijon.projetrsabase.network.Network;
 import iutdijon.projetrsabase.rsa.NombreBinaire;
 
-public class Defi6EstEgal extends Defi {
+public class Defi9Quotient extends Defi {
 
     @Override
     public void executer() throws Exception {
@@ -20,7 +20,7 @@ public class Defi6EstEgal extends Defi {
             nb1 = new NombreBinaire(msg);
             nb2 = new NombreBinaire(conn.receiveMessage());
 
-            Boolean resultat = nb1.estEgal(nb2);
+            NombreBinaire resultat = nb1.quotient(nb2);
 
             conn.sendMessage(resultat.toString());
 
