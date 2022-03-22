@@ -28,6 +28,7 @@ public class DefiFabrique {
             case 9 : defi = new Defi9Quotient(); break;
             case 10 : defi = new Defi10Modulo(); break;
             case 11 : defi = new Defi11RandomAvecTailleFixée(); break;
+            case 12 : defi = new Defi12PuissanceModulaire(); break;
             default : throw new UnsupportedOperationException("Défis non implémenté !");
         }
         
