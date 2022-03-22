@@ -131,13 +131,14 @@ public class NombreBinaire {
 
     //DEFI 2 - Renvoie le résultat de l'addition de this avec mot2
     public NombreBinaire addition(NombreBinaire mot2) {
+        //initialisation variables
         int r = 0;
         int taille = 0;
 
         boolean b1 = false;
         boolean b2 = false;
 
-
+        //série de if
         if(mot2.getTaille() < this.getTaille()){
             taille = this.getTaille();
         }
@@ -147,7 +148,7 @@ public class NombreBinaire {
 
         NombreBinaire nb = new NombreBinaire(mot2);
 
-
+        //beurk
         for(int i = 0; i <= taille; i++){
             b1 = this.get(i);
             b2 = mot2.get(i);
@@ -200,6 +201,7 @@ public class NombreBinaire {
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
      public NombreBinaire decalage(int n) {
+        //initialisation variables
         String decal = "";
         for (int i = 0; i<n; i++){
             decal += "0";
@@ -209,9 +211,11 @@ public class NombreBinaire {
      
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
      public NombreBinaire soustraction(NombreBinaire mot2) {
+        //iniitalisation variables
         int r = 0;
         NombreBinaire new_n = new NombreBinaire();
 
+        //pour tout les chiffres de this
         for(int i = 0 ; i < getTaille(); i++){
             int b1 = this.get(i) == false ? 0 : 1;
             int b2 = mot2.get(i) == false ? 0 : 1;
@@ -241,10 +245,13 @@ public class NombreBinaire {
      
      //DEFI 5 - Renvoie si this est plus petit ou égal à mot2
      public boolean estInferieurA(NombreBinaire mot2) {
+
+        // si taille de a différent de taille b return true
         if(this.getTaille() != mot2.getTaille()) return getTaille() <= mot2.getTaille();
 
         int taille = this.getTaille();
 
+        //sinon vérifier pour tous les chiffres de this
         for(int i = 0; i < taille; i++){
             int rI = taille - i-1;
 
@@ -262,10 +269,12 @@ public class NombreBinaire {
      //DEFI 6 - Renvoie si this est égal à mot2 ou non
      public boolean estEgal(NombreBinaire mot2)
      {
+         //si taille supérieur retourner false directement
          if (this.getTaille() != mot2.getTaille()) {
              return false;
          }
          else {
+             //sinon vérifier chaque chiffres
              for (int i = 0 ; i <= this.getTaille() ; i++) {
                  if (this.get(i) != mot2.get(i)) {
                      return false;
@@ -278,18 +287,22 @@ public class NombreBinaire {
      
      //DEFI 7 - Renvoie si un nombre est pair
      public boolean estPair() {
+        //si fini par 0 retouner true
         if(this.toString().endsWith("0")){
             return true;
         }
         else{
+            //sinon retourner false
             return false;
         }
      }
      
      //DEFI 8 - Calcul la multiplication de this avec mot2
      public NombreBinaire multiplication(NombreBinaire mot2) {
+        //initialisation variables
         NombreBinaire nb = new NombreBinaire();
 
+        //multiplication
         for(int i = 0; i < mot2.getTaille(); i++){
             if(mot2.get(i)){
                 nb = nb.addition(this.decalage(i));
@@ -309,8 +322,9 @@ public class NombreBinaire {
          NombreBinaire q = new NombreBinaire(0);
          NombreBinaire un = new NombreBinaire(1);
 
-//         !r.estEgal(b)
+         //si reste pas inférieur a b
          while(!r.estInferieurA(b)) {
+             //effectuer division euclidienne
              int n = r.getTaille() - b.getTaille();
              NombreBinaire bPrime = b.decalage(n);
 
@@ -322,6 +336,7 @@ public class NombreBinaire {
              q = q.addition(un.decalage(n));
 
          }
+         //sinon retourner quotient
          return  q;
      }
      
@@ -335,7 +350,8 @@ public class NombreBinaire {
          NombreBinaire q = new NombreBinaire(0);
          NombreBinaire un = new NombreBinaire(1);
 
-//         !r.estEgal(b)
+
+         // division euclidienne
          while(!r.estInferieurA(b)) {
              int n = r.getTaille() - b.getTaille();
              NombreBinaire bPrime = b.decalage(n);
@@ -348,6 +364,7 @@ public class NombreBinaire {
              q = q.addition(un.decalage(n));
 
          }
+         //retourner quotient au lieu de reste
          return  r;
      }  
      
@@ -387,6 +404,9 @@ public class NombreBinaire {
      //DEFI 15 - Calcul de l'inverse modulo nombre
      //Basé sur l'algo d'euclide étendu (adapté).
      public NombreBinaire inverseModulaire(NombreBinaire nombre) {
+
+        //deja implémenté
+
          NombreBinaire ZERO = new NombreBinaire(0);
             
          NombreBinaire n0 = new NombreBinaire(nombre);
