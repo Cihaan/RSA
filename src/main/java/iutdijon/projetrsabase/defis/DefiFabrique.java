@@ -26,6 +26,7 @@ public class DefiFabrique {
             case 7 : defi = new Defi7EstPair(); break;
             case 8 : defi = new Defi8Multiplication(); break;
             case 9 : defi = new Defi9Quotient(); break;
+            case 10 : defi = new Defi10Modulo(); break;
             case 11 : defi = new Defi11RandomAvecTailleFixée(); break;
             default : throw new UnsupportedOperationException("Défis non implémenté !");
         }

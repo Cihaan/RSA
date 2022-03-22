@@ -327,7 +327,28 @@ public class NombreBinaire {
      
      //DEFI 10 - Calcul this modulo mot2 via une division euclidienne
      public NombreBinaire modulo(NombreBinaire mot2) {
-         return null;
+
+         //initialisation variables
+         NombreBinaire a = this;
+         NombreBinaire b = mot2;
+         NombreBinaire r = a;
+         NombreBinaire q = new NombreBinaire(0);
+         NombreBinaire un = new NombreBinaire(1);
+
+//         !r.estEgal(b)
+         while(!r.estInferieurA(b)) {
+             int n = r.getTaille() - b.getTaille();
+             NombreBinaire bPrime = b.decalage(n);
+
+             if( !bPrime.estInferieurA(r) && !bPrime.estEgal(r) ) {
+                 bPrime = b.decalage(n-1);
+                 n -= 1;
+             }
+             r = r.soustraction(bPrime);
+             q = q.addition(un.decalage(n));
+
+         }
+         return  r;
      }  
      
     //DEFI 11 - Génère un nombre binaire aléatoire de "taille" bits au maximum.
