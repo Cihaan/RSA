@@ -245,7 +245,7 @@ public class NombreBinaire {
         int taille = this.getTaille();
 
         for(int i = 0; i < taille; i++){
-            int rI = taille - i;
+            int rI = taille - i-1;
 
             int b1 = this.get(rI) == false ? 0 : 1;
             int b2 = mot2.get(rI) == false ? 0 : 1;
@@ -293,27 +293,27 @@ public class NombreBinaire {
      //DEFI 9 - Calcul le quotient dans la division euclidienne de this par mot2
      public NombreBinaire quotient(NombreBinaire mot2)
      {
+         //initialisation variables
          NombreBinaire a = this;
          NombreBinaire b = mot2;
          NombreBinaire r = a;
          NombreBinaire q = new NombreBinaire(0);
-         NombreBinaire n = b;
+         NombreBinaire un = new NombreBinaire(1);
 
-         NombreBinaire bPrime = new NombreBinaire(this.decalage(n.getTaille()));
+//         !r.estEgal(b)
+         while(!r.estInferieurA(b)) {
+             int n = r.getTaille() - b.getTaille();
+             NombreBinaire bPrime = b.decalage(n);
 
-         if( !bPrime.estInferieurA(r) && !bPrime.estEgal(r) ) {
-             bPrime = b.decalage(n.getTaille()-1);
-             n = n.soustraction(new NombreBinaire(1));
+             if( !bPrime.estInferieurA(r) && !bPrime.estEgal(r) ) {
+                 bPrime = b.decalage(n-1);
+                 n -= 1;
+             }
              r = r.soustraction(bPrime);
-             q = q.addition(new NombreBinaire(2).decalage(n.getTaille()));
-             if (!r.estInferieurA(b)) {
-                 a.quotient(b);
-             }
-             else {
-                 return q;
-             }
+             q = q.addition(un.decalage(n));
+
          }
-         return q;
+         return  q;
      }
      
      //DEFI 10 - Calcul this modulo mot2 via une division euclidienne
