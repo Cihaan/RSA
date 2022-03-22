@@ -19,7 +19,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Defi defi = DefiFabrique.creer(15);
         Defi defi = DefiFabrique.creer(14);
         try {
             defi.executer();
