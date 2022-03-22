@@ -210,7 +210,8 @@ public class NombreBinaire {
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
      public NombreBinaire soustraction(NombreBinaire mot2) {
         int r = 0;
-        String new_n = "";
+        NombreBinaire new_n = new NombreBinaire();
+
         for(int i = 0 ; i < getTaille(); i++){
             int b1 = this.get(i) == false ? 0 : 1;
             int b2 = mot2.get(i) == false ? 0 : 1;
@@ -218,20 +219,20 @@ public class NombreBinaire {
             int res = b1 - b2 - r;
 
             if(res == 1){
-                new_n = "1" + new_n;
+                new_n.set(i,true);
                 r = 0;
             }
             else if(res == 0){
-                new_n = "0" + new_n;
+                new_n.set(i,false);
                 r = 0;
             }
             else if(res == -1){
                 r = 1;
-                new_n = "1" + new_n;
+                new_n.set(i,true);
             }
             else if(res == -2){
                 r = 1;
-                new_n = "0" + new_n;
+                new_n.set(i,false);
             }
 
         }
