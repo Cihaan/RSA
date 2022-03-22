@@ -2,6 +2,7 @@ package iutdijon.projetrsabase.rsa;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -331,7 +332,37 @@ public class NombreBinaire {
      
     //DEFI 14 - renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
     public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
-        return null;
+        NombreBinaire new_n = new NombreBinaire();
+        max = max.soustraction(new NombreBinaire("1"));
+
+        boolean max_dif = false;
+        boolean min_dif = false;
+
+        for(int i = max.getTaille()-1; i >= 0; i--){
+            Boolean maxI = max.get(i);
+            Boolean minI = min.get(i);
+
+            if(max_dif) maxI = true;
+            if(min_dif) minI = false;
+
+            boolean val;
+
+            if(minI == true && maxI == true){
+                val = true;
+            }
+            else if(maxI == false && minI == false){
+                val = false;
+            }
+            else{
+                val = Long.valueOf(Math.round(Math.random())).intValue() == 1 ? true : false;
+            }
+            new_n.set(i, val);
+
+            if(!max_dif && val == false && max.get(i) == true) max_dif = true;
+            if(!min_dif && val == true && min.get(i) == false) min_dif = true;
+
+        }
+        return new_n;
     }
     
      //DEFI 15 - Calcul de l'inverse modulo nombre
