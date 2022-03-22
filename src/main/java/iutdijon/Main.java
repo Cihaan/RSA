@@ -20,6 +20,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Defi defi = DefiFabrique.creer(15);
+        Defi defi = DefiFabrique.creer(14);
         try {
             defi.executer();
         } catch (IOException ex) {
