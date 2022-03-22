@@ -2,6 +2,8 @@ package iutdijon;
 
 import iutdijon.projetrsabase.defis.Defi;
 import iutdijon.projetrsabase.defis.DefiFabrique;
+import iutdijon.projetrsabase.rsa.NombreBinaire;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +27,9 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        /*NombreBinaire nb1 = new NombreBinaire("11101100");
+        NombreBinaire nb2 = new NombreBinaire("100");
+        System.out.println(nb1.quotient(nb2));*/
     }
     
 }
