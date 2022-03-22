@@ -376,7 +376,20 @@ public class NombreBinaire {
      
      //DEFI 13 - Calcul le PGCD de this et mot2
      public NombreBinaire PGCD(NombreBinaire mot2) {
-        return null;
+        NombreBinaire a = new NombreBinaire(this);
+        NombreBinaire temp = new NombreBinaire(a);
+
+        if(a.estInferieurA(mot2)){
+            a = mot2;
+            mot2 = temp;
+        }
+         NombreBinaire zero = new NombreBinaire(0);
+        while(!mot2.estEgal(zero)){
+            temp = mot2;
+            mot2 = a.modulo(mot2);
+            a = temp;
+        }
+        return a;
      }
      
     //DEFI 14 - renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
