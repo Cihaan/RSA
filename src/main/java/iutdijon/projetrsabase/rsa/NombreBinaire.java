@@ -389,7 +389,6 @@ public class NombreBinaire {
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) throws Exception {
-
         NombreBinaire zero = new NombreBinaire(0);
         NombreBinaire un = new NombreBinaire(1);
         NombreBinaire deux = new NombreBinaire(2);
@@ -410,9 +409,9 @@ public class NombreBinaire {
              return res;
         }
      }
-     
-     //DEFI 13 - Calcul le PGCD de this et mot2
-     public NombreBinaire PGCD(NombreBinaire mot2) {
+
+    //DEFI 13 - Calcul le PGCD de this et mot2
+    public NombreBinaire PGCD(NombreBinaire mot2) {
         NombreBinaire a = new NombreBinaire(this);
         NombreBinaire temp = new NombreBinaire(a);
 
@@ -420,7 +419,7 @@ public class NombreBinaire {
             a = mot2;
             mot2 = temp;
         }
-         NombreBinaire zero = new NombreBinaire(0);
+        NombreBinaire zero = new NombreBinaire(0);
         while(!mot2.estEgal(zero)){
             temp = mot2;
             mot2 = a.modulo(mot2);
