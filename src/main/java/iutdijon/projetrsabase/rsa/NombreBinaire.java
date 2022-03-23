@@ -396,14 +396,19 @@ public class NombreBinaire {
         NombreBinaire res = new NombreBinaire(1);
         NombreBinaire base = this;
 
-         while (!exposant.estEgal(zero)){
-             if ((exposant.modulo(deux).estEgal(un))){
-                 res = res.multiplication(base).modulo(m);
+        if (m.estEgal(zero)){
+            return this;
+        }
+        else{
+             while (!exposant.estEgal(zero)){
+                 if ((exposant.modulo(deux).estEgal(un))){
+                     res = res.multiplication(base).modulo(m);
+                 }
+                 exposant = exposant.quotient(deux);
+                 base = base.multiplication(base).modulo(m);
              }
-             exposant = exposant.quotient(deux);
-             base = base.multiplication(base).modulo(m);
-         }
-         return res;
+             return res;
+        }
      }
      
      //DEFI 13 - Calcul le PGCD de this et mot2

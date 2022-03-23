@@ -8,32 +8,34 @@ import iutdijon.projetrsabase.rsa.NombreBinaire;
 public class Defi18DechiffrerMorceau extends Defi {
     @Override
     public void executer() throws Exception {
-        Network net = new Network();
-        net.receiveMessage();
+        Network network = new Network();
+        network.receiveMessage();
 
-        String message = net.receiveMessage();
+        String messageM = network.receiveMessage();
 
 
-        NombreBinaire morceau;
-        NombreBinaire N;
-        NombreBinaire d;
-        while(!message.startsWith("Defi valide")){
-            morceau = new NombreBinaire(message);
-            N = new NombreBinaire(net.receiveMessage());
-            d = new NombreBinaire(net.receiveMessage());
+        while(!messageM.startsWith("Defi valide")){
 
-            NombreBinaire retval = AlgorithmeRSA.dechiffrerMorceau(morceau, N, d);
-            net.sendMessage(retval.toString());
+            String messageN = network.receiveMessage();
+            String messageE = network.receiveMessage();
 
-            if(net.receiveMessage().startsWith("NOK")){
-                throw new Exception("VALEUR INVALIDE");
-            }
+            NombreBinaire morceau = new NombreBinaire(messageM);
+            NombreBinaire N = new NombreBinaire(messageN);
+            NombreBinaire d = new NombreBinaire(messageE);
 
-            message = net.receiveMessage();
+            NombreBinaire nb = AlgorithmeRSA.dechiffrerMorceau(morceau, N, d);
+
+            network.sendMessage(nb.toString());
+
+            if(network.receiveMessage() == "NOK"){
+                System.out.println("erreur nok");
+            };
+
+            messageM = network.receiveMessage();
         }
 
-        net.receiveMessage();
-        net.end();
+        network.receiveMessage();
+        network.end();
 
     }
 }

@@ -16,7 +16,7 @@ public class AlgorithmeRSA {
     //DEFI 18 - Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
     public static NombreBinaire dechiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire d){
         NombreBinaire retval = morceau.puissanceModulo(d,N);
-        retval.forcerTaille(ParametresRSA.getTailleCle());
+        retval.forcerTaille(ParametresRSA.getTailleMorceau());
        return retval;
     }
 
