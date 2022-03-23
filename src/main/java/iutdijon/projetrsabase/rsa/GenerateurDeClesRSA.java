@@ -40,9 +40,41 @@ public class GenerateurDeClesRSA {
     
     //Défi 20 - Renvoie la clé privée d
     public static NombreBinaire genererClePrive(NombreBinaire P,NombreBinaire Q,NombreBinaire e) {
-        return null;
+        setP(P);
+        setQ(Q);
+        setE(e);
+
+        NombreBinaire temp = new NombreBinaire(1);
+
+        NombreBinaire phi = P.soustraction(temp).multiplication(Q.soustraction(temp));
+        setPhi(phi);
+
+        temp = e.inverseModulaire(phi);
+
+        temp.forcerTaille(ParametresRSA.getTailleCle());
+
+
+        return temp;
     }
 
-    
-    
+
+    public static void setP(NombreBinaire p) {
+        P = p;
+    }
+
+    public static void setQ(NombreBinaire q) {
+        Q = q;
+    }
+
+    public static void setN(NombreBinaire n) {
+        N = n;
+    }
+
+    public static void setPhi(NombreBinaire phi) {
+        GenerateurDeClesRSA.phi = phi;
+    }
+
+    public static void setE(NombreBinaire e) {
+        GenerateurDeClesRSA.e = e;
+    }
 }
