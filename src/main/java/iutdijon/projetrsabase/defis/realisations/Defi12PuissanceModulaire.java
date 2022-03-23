@@ -16,11 +16,14 @@ public class Defi12PuissanceModulaire extends Defi {
 
         NombreBinaire nb1;
         NombreBinaire nb2;
+        NombreBinaire nb3;
         while(!message.startsWith("Defi valide")){
             nb1 = new NombreBinaire(message);
             nb2 = new NombreBinaire(net.receiveMessage());
+            nb3 = new NombreBinaire(net.receiveMessage());
 
-            NombreBinaire nbF = nb1.puissanceModulo(nb2);
+
+            NombreBinaire nbF = nb1.puissanceModulo(nb2,nb3);
 
             net.sendMessage(nbF.toString());
 

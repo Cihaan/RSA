@@ -375,31 +375,17 @@ public class NombreBinaire {
         NombreBinaire zero = new NombreBinaire(0);
         NombreBinaire un = new NombreBinaire(1);
         NombreBinaire deux = new NombreBinaire(2);
-        NombreBinaire c = new NombreBinaire(0);
+        NombreBinaire res = new NombreBinaire(1);
+        NombreBinaire base = this;
 
-        if (m.estEgal(un)){
-            return zero;
-        }
-
-        for (NombreBinaire i = un; i.estInferieurA(exposant); i.addition(un)){
-            c = (c.multiplication(this)).modulo(m);
-        }
-        /*
-        if (exposant.estEgal(zero)){
-            return un;
-        }
-        else if (exposant.estEgal(un)){
-            return this;
-        }
-        else {
-            NombreBinaire tmp = this.puissanceModulo(exposant.quotient(deux),m);
-            if (exposant.estPair()){
-                return tmp.multiplication(tmp);
-            }
-            else {
-                return (this.multiplication(tmp)).multiplication(tmp);
-            }
-         }*/
+         while (!exposant.estEgal(zero)){
+             if ((exposant.modulo(deux).estEgal(un))){
+                 res = res.multiplication(base).modulo(m);
+             }
+             exposant = exposant.quotient(deux);
+             base = base.multiplication(base).modulo(m);
+         }
+         return res;
      }
      
      //DEFI 13 - Calcul le PGCD de this et mot2
