@@ -9,12 +9,21 @@ public class AlgorithmeRSA {
     
     //DEFI 17 - Chiffre un morceau (entrée : tailleMorceau, sortie : tailleCle)
     public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e){
+
       return null;
     }
    
     //DEFI 18 - Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
     public static NombreBinaire dechiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire d){
-       return null;
+        NombreBinaire retval = morceau.puissanceModulo(d,N);
+        if (retval.getTaille()<morceau.getTaille()){
+            retval = retval.decalage(morceau.getTaille()-retval.getTaille());
+            System.out.println("merde");
+        }
+        else{
+            System.out.println("chier");
+        }
+       return retval;
     }
 
     //DEFI 21 - Chiffre le message avec les clés données
