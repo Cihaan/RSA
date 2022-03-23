@@ -39,6 +39,7 @@ public class DefiFabrique {
             case 20 : defi = new Defi20GenererClePrivee(); break;
             case 21 : defi = new Defi21Chiffrer(); break;
             case 22 : defi = new Defi22Dechiffrer(); break;
+            case 23 : defi = new Defi23NombrePremier(); break;
             default : throw new UnsupportedOperationException("Défis non implémenté !");
         }
         

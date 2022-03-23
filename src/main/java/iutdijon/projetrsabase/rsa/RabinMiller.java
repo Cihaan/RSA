@@ -58,7 +58,27 @@ public class RabinMiller {
     }
     
     //DEFI 23 - Renvoie le plus petit nombre premier supérieur à min
-    public static NombreBinaire nombrePremier(NombreBinaire min) {
-        return null;
+    public static NombreBinaire nombrePremier(NombreBinaire min) throws Exception {
+
+        boolean isPrime = false;
+        NombreBinaire un = new NombreBinaire(1);
+
+        //tant que pas nombre premier
+        while(!isPrime){
+            //si est pair
+            if(min.estPair()){
+                min = min.addition(un);
+            }else{
+                //test si nombre premssss
+                if(RabinMiller.testRabinMiller(min)){
+                    isPrime = true;
+                }else{
+                    min = min.addition(un);
+                }
+            }
+        }
+
+        //retourne le plus petit nombre premier supérieur à min qui est passé en paramètre
+        return min;
     }
 }
