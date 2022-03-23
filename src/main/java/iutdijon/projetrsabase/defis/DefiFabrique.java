@@ -35,6 +35,7 @@ public class DefiFabrique {
             case 16 : defi = new Defi16RabinMiller(); break;
             case 17 : defi = new Defi17ChiffrerMorceau(); break;
             case 18 : defi = new Defi18DechiffrerMorceau(); break;
+            case 19 : defi = new Defi19TestRabinMiller(); break;
             case 20 : defi = new Defi20GenererClePrivee(); break;
             case 21 : defi = new Defi21Chiffrer(); break;
             case 22 : defi = new Defi22Dechiffrer(); break;

@@ -38,8 +38,23 @@ public class RabinMiller {
     }
     
     //DEFI 19 - Test de RabinMiller, test probabilistiquement que n est premier (proba erreur = 1/4^k)
-    public static boolean testRabinMiller(NombreBinaire n) {
-        return false;
+    public static boolean testRabinMiller(NombreBinaire n) throws Exception {
+
+        boolean b = true;
+        NombreBinaire n2 = new NombreBinaire(2);
+        NombreBinaire nSus2 = n.soustraction(n2);
+
+        for (int i=0;i<25;i++){
+
+            NombreBinaire a = NombreBinaire.random(n2, nSus2);
+
+            if(RabinMiller.temoin(n, a)){
+                b = false;
+                break;
+            }
+        }
+
+        return b;
     }
     
     //DEFI 23 - Renvoie le plus petit nombre premier supérieur à min
