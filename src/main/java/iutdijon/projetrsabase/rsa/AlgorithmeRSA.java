@@ -11,6 +11,7 @@ public class AlgorithmeRSA {
     public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e){
         NombreBinaire res = morceau.puissanceModulo(e, N);
 
+        res.forcerTaille(ParametresRSA.getTailleCle());
         return res;
     }
    
