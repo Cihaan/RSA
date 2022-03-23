@@ -389,7 +389,21 @@ public class NombreBinaire {
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-         return null;
+
+        NombreBinaire zero = new NombreBinaire(0);
+        NombreBinaire un = new NombreBinaire(1);
+        NombreBinaire deux = new NombreBinaire(2);
+        NombreBinaire res = new NombreBinaire(1);
+        NombreBinaire base = this;
+
+         while (!exposant.estEgal(zero)){
+             if ((exposant.modulo(deux).estEgal(un))){
+                 res = res.multiplication(base).modulo(m);
+             }
+             exposant = exposant.quotient(deux);
+             base = base.multiplication(base).modulo(m);
+         }
+         return res;
      }
      
      //DEFI 13 - Calcul le PGCD de this et mot2

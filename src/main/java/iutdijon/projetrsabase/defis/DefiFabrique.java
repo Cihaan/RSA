@@ -28,6 +28,7 @@ public class DefiFabrique {
             case 9 : defi = new Defi9Quotient(); break;
             case 10 : defi = new Defi10Modulo(); break;
             case 11 : defi = new Defi11RandomAvecTailleFixée(); break;
+            case 12 : defi = new Defi12PuissanceModulaire(); break;
             case 13 : defi = new Defi13PGCD(); break;
             case 14 : defi = new Defi14RandomAvecBorne(); break;
             case 15 : defi = new Defi15InversementModulaire(); break;
