@@ -10,7 +10,7 @@ public class AlgorithmeRSA {
 
     
     //DEFI 17 - Chiffre un morceau (entrée : tailleMorceau, sortie : tailleCle)
-    public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e){
+    public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e) throws Exception {
         NombreBinaire res = morceau.puissanceModulo(e, N);
 
         res.forcerTaille(ParametresRSA.getTailleCle());
@@ -25,7 +25,7 @@ public class AlgorithmeRSA {
     }
 
     //DEFI 21 - Chiffre le message avec les clés données
-    public static NombreBinaire chiffrer(NombreBinaire messageAChiffrer, NombreBinaire N, NombreBinaire e) {
+    public static NombreBinaire chiffrer(NombreBinaire messageAChiffrer, NombreBinaire N, NombreBinaire e) throws Exception {
         ArrayList<NombreBinaire> listNb = messageAChiffrer.scinder(ParametresRSA.getTailleMorceau());
 
         NombreBinaire nb1 = listNb.get(0);
