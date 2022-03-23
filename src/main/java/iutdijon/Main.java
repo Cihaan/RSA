@@ -19,7 +19,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Defi defi = DefiFabrique.creer(22);
+        Defi defi = DefiFabrique.creer(24);
         try {
             defi.executer();
         } catch (IOException ex) {
@@ -27,9 +27,6 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        /*NombreBinaire nb1 = new NombreBinaire("11101100");
-        NombreBinaire nb2 = new NombreBinaire("100");
-        System.out.println(nb1.quotient(nb2));*/
     }
     
 }

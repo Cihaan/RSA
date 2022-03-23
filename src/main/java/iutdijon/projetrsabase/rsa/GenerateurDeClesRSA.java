@@ -1,5 +1,7 @@
 package iutdijon.projetrsabase.rsa;
 
+import java.util.Random;
+
 /**
  * Générateur de clé RSA
  * @author Matthieu
@@ -34,8 +36,28 @@ public class GenerateurDeClesRSA {
     
     
     //Défi 24 - Génère la clé publique (P,Q,N,phi et e)    
-    public static void genererClePublique() {
-        
+    public static void genererClePublique() throws Exception {
+        NombreBinaire P = new NombreBinaire();
+        P = NombreBinaire.random(new NombreBinaire(100), new NombreBinaire(200));
+        P = RabinMiller.nombrePremier(P);
+
+        NombreBinaire Q = new NombreBinaire();
+        Q = NombreBinaire.random(new NombreBinaire(50), new NombreBinaire(99));
+        Q = RabinMiller.nombrePremier(Q);
+
+        NombreBinaire N = P.multiplication(Q);
+
+        NombreBinaire pSoustrait = P.soustraction(new NombreBinaire(1));
+        NombreBinaire qSoustrait = Q.soustraction(new NombreBinaire(1));
+        NombreBinaire Phi = pSoustrait.multiplication(qSoustrait);
+
+        NombreBinaire E = RabinMiller.nombrePremier(Phi);
+
+        setP(P);
+        setQ(Q);
+        setN(N);
+        setPhi(Phi);
+        setE(E);
     }
     
     //Défi 20 - Renvoie la clé privée d

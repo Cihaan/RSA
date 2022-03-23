@@ -31,6 +31,10 @@ public class Defi23NombrePremier extends Defi{
 
             conn.sendMessage(resultat.toString());
 
+            if(conn.receiveMessage() == "NOK"){
+                System.out.println("erreur nok");
+            };
+
             // Vérifie si c'est juste
             messageM = conn.receiveMessage();
         }
