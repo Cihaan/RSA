@@ -30,6 +30,7 @@ public class DefiFabrique {
             case 11 : defi = new Defi11RandomAvecTailleFixée(); break;
             case 13 : defi = new Defi13PGCD(); break;
             case 15 : defi = new Defi15InversementModulaire(); break;
+            case 20 : defi = new Defi20GenererClePrivee(); break;
             default : throw new UnsupportedOperationException("Défis non implémenté !");
         }
         
