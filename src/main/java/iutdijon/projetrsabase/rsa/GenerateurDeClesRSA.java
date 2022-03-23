@@ -51,7 +51,7 @@ public class GenerateurDeClesRSA {
 
         temp = e.inverseModulaire(phi);
 
-
+        temp.forcerTaille(ParametresRSA.getTailleCle());
 
 
         return temp;

@@ -30,9 +30,6 @@ public class Defi20GenererClePrivee extends Defi {
 
             NombreBinaire nb = cle.genererClePrive(P, Q, e);
 
-            nb.forcerTaille(nb.getTaille());
-
-
             network.sendMessage(nb.toString());
 
             if(network.receiveMessage() == "NOK"){
