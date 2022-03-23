@@ -388,7 +388,7 @@ public class NombreBinaire {
     }
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
-     public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
+     public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) throws Exception {
 
         NombreBinaire zero = new NombreBinaire(0);
         NombreBinaire un = new NombreBinaire(1);
@@ -397,7 +397,7 @@ public class NombreBinaire {
         NombreBinaire base = this;
 
         if (m.estEgal(zero)){
-            return this;
+            throw new Exception("Impossible de diviser par 0");
         }
         else{
              while (!exposant.estEgal(zero)){
